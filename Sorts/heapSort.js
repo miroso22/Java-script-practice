@@ -27,7 +27,7 @@ function heapSort(array) {
 
   // First time we build the tree from down to up
   function buildHeap(i, limit) {
-    // Finding the deepest leaf
+    // Finding the deepest node
     if (2 * i + 1 < limit) buildHeap(2 * i + 1, limit);
     if (2 * i + 2 < limit) buildHeap(2 * i + 2, limit);
 
@@ -39,17 +39,17 @@ function heapSort(array) {
   //---------------------------------------------------
 
   function heapify(i, limit) {
-    // Elements of a leaf
+    // Elements of a node
     const top = array[i];
 
-    // We shouldn't change the last
+    // We shouldn't change the last element in array
     let left;
     if (2 * i + 1 < limit) left = array[2 * i + 1];
 
     let right;
     if (2 * i + 2 < limit) right = array[2 * i + 2];
 
-    // If left is null, then right is null sa well
+    // If left is null, then right is null as well
     if (!left) return;
 
     // Firstly compare lover elements
@@ -58,11 +58,12 @@ function heapSort(array) {
       if (top < left) {
         // The biggest element must be on the top
         array.swap(i, 2 * i + 1);
-        // As the leaf changed, we rebuild
-        // changed part of the tree
+        // As the node changed, we rebuild
+        // changed branch of the tree
         heapify(2 * i + 1, limit);
       }
     } else {
+      // The same...
       if (top < right) {
         array.swap(i, 2 * i + 2);
         heapify(2 * i + 2, limit);
@@ -75,7 +76,7 @@ function heapSort(array) {
   buildHeap(0, array.length);
   console.log('Heap:');
   console.dir(array);
-  // In each iteration the result array gets 1 element
+  // In each iteration the array gets 1 sorted element
   for (let i = array.length - 1; i > -1; i--) {
     console.log('Next...');
 
