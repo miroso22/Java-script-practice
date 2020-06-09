@@ -7,7 +7,7 @@ Array.prototype.swap = function(a, b) {
 };
 
 const numbers = [ 4, 0, 2, 7, 8, 5, 9, 1, 3,
-  6, 12, 17, 20, 11, 13, 14, 19, 18, 16];
+  6, 12, 17, 20, 11, 13, 14, 19, 15, 18, 16];
 const another = [10, 3, 12, 7, 2, 11, 9, ];
 
 function heapSort(array) {
